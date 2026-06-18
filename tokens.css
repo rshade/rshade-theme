@@ -1,0 +1,21 @@
+/*
+ * rshade-theme — canonical design tokens
+ *
+ * Vendor-neutral CSS custom properties shared across the rshade docs ecosystem
+ * (blog, finfocus, ax-go, canonical-syndicate). This file is the single source
+ * of truth for fonts and the accent color ramp.
+ *
+ * Scope: tokens only. No Tailwind directives, no Starlight `--sl-*` variables,
+ * no `@apply`, no `.prose` rules. Each consumer maps these onto its own system.
+ *
+ * Fonts are NOT vendored here — consumers are responsible for loading
+ * Inter and JetBrains Mono (e.g. via @fontsource or a <link> tag).
+ */
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-accent: oklch(0.65 0.18 250);
+  --color-accent-hover: oklch(0.72 0.18 250);
+  --color-accent-soft: oklch(0.65 0.18 250 / 0.12);
+}

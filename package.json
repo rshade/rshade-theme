@@ -1,0 +1,29 @@
+{
+  "name": "rshade-theme",
+  "version": "0.1.0",
+  "description": "Canonical design tokens (fonts + accent color ramp) shared across the rshade docs ecosystem.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rshade/rshade-theme.git"
+  },
+  "homepage": "https://github.com/rshade/rshade-theme#readme",
+  "bugs": {
+    "url": "https://github.com/rshade/rshade-theme/issues"
+  },
+  "keywords": [
+    "design-tokens",
+    "css-custom-properties",
+    "theme",
+    "starlight",
+    "astro"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens.css"
+  },
+  "files": [
+    "tokens.css",
+    "LICENSE",
+    "NOTICE"
+  ]
+}
