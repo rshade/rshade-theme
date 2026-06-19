@@ -93,13 +93,33 @@ imports the tokens and maps them onto Starlight's variables:
 /* docs/src/styles/theme-bridge.css */
 @import "../../theme/tokens.css";
 
+/* fonts are theme-independent in Starlight */
 :root {
   --sl-font: var(--font-sans);
   --sl-font-mono: var(--font-mono);
+}
+
+/* accent ramp MUST be set for both themes, or light mode keeps Starlight's
+   default — :root[data-theme="light"] outranks :root on specificity */
+:root,
+:root[data-theme="light"] {
+  --sl-color-accent-low: var(--color-accent-soft);
   --sl-color-accent: var(--color-accent);
   --sl-color-accent-high: var(--color-accent-hover);
 }
 ```
+
+The accent ramp **must** target both `:root` and `:root[data-theme="light"]`.
+Starlight declares its accent under both selectors, and the
+`:root[data-theme="light"]` rule has higher specificity — so mapping `:root`
+alone themes dark mode while light mode silently keeps Starlight's default
+(purple) accent, regardless of CSS load order.
+
+> **Adjust the import path to your file's depth.** `../../theme/tokens.css` is
+> correct when the bridge lives at `docs/src/styles/theme-bridge.css` and the
+> submodule sits at `docs/theme/`. A missing CSS `@import` **fails silently**
+> (no build error), so count the directories from your bridge file to
+> `tokens.css` and adjust the `../../` prefix accordingly.
 
 Register the bridge in `astro.config.mjs`:
 

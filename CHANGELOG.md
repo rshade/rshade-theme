@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- README Starlight bridge now maps the accent ramp under both `:root` and
+  `:root[data-theme="light"]`. The previous snippet themed only `:root`, so
+  Starlight's higher-specificity `:root[data-theme="light"]` default won in
+  light mode — dark mode showed the brand accent while light mode stayed
+  Starlight purple.
+- README Starlight bridge now maps `--sl-color-accent-low` to
+  `--color-accent-soft` (low-emphasis accent tint, e.g. active sidebar item),
+  which was previously left at the Starlight default.
+- README now warns that the relative `@import "../../theme/tokens.css"` path
+  must be adjusted to the consumer's file depth, since a missing CSS `@import`
+  fails silently with no build error.
+
 ## [0.1.0] - 2026-06-18
 
 ### Added
